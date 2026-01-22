@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kapcsolat - SeaHost</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image.png">
+</head>
+<body>
+
+<header>
+    <div class="logo">
+        <a href="index.html"><img src="image.png" alt="SeaHost Logo"></a>
+    </div>
+    <nav>
+        <a href="index.html">Főoldal</a>
+        <a href="gyik.html">GYIK</a>
+        <a href="aszf.html">ÁSZF</a>
+        <a href="contact.html" class="active">Kapcsolat</a>
+    </nav>
+</header>
+
+<main class="container">
+    <h1 style="text-align: center;">Kapcsolat</h1>
+    <p style="text-align: center; margin-bottom: 40px;">Kérdésed van? Vedd fel velünk a kapcsolatot az alábbi elérhetőségek egyikén!</p>
+
+    <div class="grid">
+        <div class="card">
+            <h2 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 20px;">Elérhetőségeink</h2>
+            <div style="margin-bottom: 15px;">
+                <strong>Email:</strong><br>
+                <span style="color: var(--white);">support@seahost.hu</span>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <strong>Discord:</strong><br>
+                <span style="color: var(--white);">Csatlakozz szerverünkhöz a gyors segítségért!</span>
+            </div>
+            <div style="margin-bottom: 15px;">
+                <strong>Ügyfélszolgálati idő:</strong><br>
+                <span style="color: var(--white);">Hétfő - Péntek: 09:00 - 18:00</span>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2 style="color: var(--primary); font-size: 1.5rem; margin-bottom: 20px;">Írj nekünk</h2>
+            <form action="#">
+                <div style="margin-bottom: 10px;">
+                    <label for="c-name">Neved:</label>
+                    <input type="text" id="c-name" placeholder="Gipsz Jakab" required>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="c-email">Email címed:</label>
+                    <input type="email" id="c-email" placeholder="pelda@email.hu" required>
+                </div>
+                <div style="margin-bottom: 10px;">
+                    <label for="c-msg">Üzenet:</label>
+                    <textarea id="c-msg" style="width: 100%; padding: 12px; background: #0a192f; border: 1px solid var(--primary); color: white; border-radius: 5px;" rows="4" placeholder="Miben segíthetünk?"></textarea>
+                </div>
+                <button type="button" class="btn" onclick="alert('Köszönjük! Az üzenetedet rögzítettük, hamarosan válaszolunk.')">Üzenet küldése</button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>&copy; 2026 SeaHost.hu - Minden jog fenntartva.</p>
+</footer>
+
+</body>
+</html>

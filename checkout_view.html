@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/png" href="image.png">
+    <title>Pénztár - SeaHost</title>
+</head>
+<body class="content-page">
+    <div class="container">
+        <div class="card" style="max-width: 500px; margin: auto;">
+            <h1>Rendelés</h1>
+            <p id="summary" style="color:var(--primary); margin-bottom:20px;"></p>
+            <form id="orderForm">
+                <input type="text" id="name" required placeholder="Teljes neved">
+                <input type="email" id="email" required placeholder="Email címed">
+                <input type="text" id="discord" required placeholder="Discord neved (Pl: felhasznalo#0001)">
+                <button type="submit" class="btn">Rendelés elküldése</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const plan = localStorage.getItem('selectedPlan');
+        const price = localStorage.getItem('selectedPrice');
+        document.getElementById('summary').innerText = plan + " - " + price + " Ft";
+
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const webhookURL = "https://discord.com/api/webhooks/1463894976550273155/9ECNOlqIvNQZ0ovCwxfgogNQdcFQjRShB0p972r38nfoB4TaViOgHXHoHIui_YID1ToR"; 
+            const myUserID = "1463895850311745583"; // <--- IDE AZ ID-D!
+
+            const payload = {
+                content: `<@&${myUserID}> 🌊 **ÚJ RENDELÉS ÉRKEZETT!**`,
+                embeds: [{
+                    title: "SeaHost - Rendelési Adatok",
+                    color: 5814783,
+                    fields: [
+                        { name: "Csomag", value: plan, inline: true },
+                        { name: "Ár", value: price + " Ft", inline: true },
+                        { name: "Név", value: document.getElementById('name').value },
+                        { name: "Email", value: document.getElementById('email').value },
+                        { name: "Discord", value: document.getElementById('discord').value }
+                    ],
+                    timestamp: new Date()
+                }]
+            };
+
+            fetch(webhookURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            }).then(() => {
+                alert("Sikeres rendelés! Hamarosan keresünk Discordon.");
+                window.location.href = "index.html";
+            });
+        });
+    </script>
+</body>
+</html>
